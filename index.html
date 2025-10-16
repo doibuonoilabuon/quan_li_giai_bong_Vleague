@@ -4,183 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Z TV - Dashboard V.League</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a202c; /* Equivalent to bg-gray-900 */
-            color: #e2e8f0; /* Equivalent to text-gray-300 */
-        }
-        /* Custom scrollbar for a better look */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #2d3748; /* bg-gray-700 */
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #4a5568; /* bg-gray-600 */
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #718096; /* bg-gray-500 */
-        }
-        .main-container {
-            background-color: #242b3d;
-            border-radius: 2rem;
-        }
-        .sidebar-left {
-            background-color: #2d3748;
-        }
-        .card {
-            background-color: #2d3748;
-            border-radius: 1.5rem;
-        }
-        .active-channel {
-            background-color: #4a5568;
-            border-left: 4px solid #6366f1; /* indigo-500 */
-            color: white;
-        }
-        .watch-now-btn {
-            background: linear-gradient(90deg, #818cf8, #4f46e5);
-        }
-    </style>
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
-<body class="p-4 md:p-8">
-    <div class="main-container mx-auto max-w-[1920px] p-4 lg:p-6">
-        <!-- Header -->
-        <header class="flex items-center justify-between mb-6">
-            <div class="flex items-center space-x-8">
-                <div class="flex items-center space-x-2">
-                    <div class="bg-indigo-500 p-2 rounded-lg">
-                        <i data-lucide="tv" class="text-white"></i>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="header-left">
+                <div class="logo">
+                    <div class="logo-icon-wrapper">
+                        <i data-lucide="tv"></i>
                     </div>
-                    <span class="text-2xl font-bold text-white">Z TV</span>
+                    <span class="logo-text">Z TV</span>
                 </div>
-                <nav class="hidden md:flex items-center space-x-6 text-gray-400 font-semibold">
-                    <a href="#" class="hover:text-white transition-colors">V.League 1</a>
-                    <a href="#" class="hover:text-white transition-colors">V.League 2</a>
-                    <a href="#" class="hover:text-white transition-colors">Cúp Quốc Gia</a>
-                    <a href="#" class="hover:text-white transition-colors">Đội tuyển QG</a>
+                <nav class="main-nav">
+                    <a href="#">V.League 1</a>
+                    <a href="#">V.League 2</a>
+                    <a href="#">Cúp Quốc Gia</a>
+                    <a href="#">Đội tuyển QG</a>
                 </nav>
             </div>
-            <div class="flex items-center space-x-4">
-                <a href="#" class="hidden md:block text-gray-400 font-semibold hover:text-white">FAQ</a>
-                <a href="#" class="hidden md:block text-gray-400 font-semibold hover:text-white">Liên hệ</a>
-                <button class="text-gray-400 hover:text-white"><i data-lucide="search"></i></button>
-                <div class="flex items-center space-x-2">
-                    <img src="https://placehold.co/40x40/6366f1/ffffff?text=S" alt="User Avatar" class="rounded-full w-10 h-10 border-2 border-indigo-400">
-                    <span class="hidden lg:block font-semibold text-white">Sơn</span>
+            <div class="header-right">
+                <a href="#" class="header-link">FAQ</a>
+                <a href="#" class="header-link">Liên hệ</a>
+                <button class="search-button"><i data-lucide="search"></i></button>
+                <div class="user-profile">
+                    <img src="https://placehold.co/40x40/6366f1/ffffff?text=S" alt="User Avatar" class="user-avatar">
+                    <span class="user-name">Sơn</span>
                 </div>
             </div>
         </header>
 
-        <!-- Main Layout -->
-        <div class="grid grid-cols-12 gap-6">
-            <!-- Left Sidebar -->
-            <aside class="col-span-12 lg:col-span-2 space-y-6">
-                <div class="card p-4">
-                    <h3 class="font-bold text-white mb-4">Kênh của tôi</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="flex items-center space-x-3 p-2 rounded-lg transition-colors font-semibold active-channel">
-                            <img src="https://placehold.co/24x24/f87171/ffffff?text=VL1" class="w-6 h-6 rounded-md"><span>V.League 1</span><span class="ml-auto text-xs font-bold text-red-500 bg-red-900/50 px-2 py-0.5 rounded-full">LIVE</span></a></li>
-                        <li><a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors font-semibold text-gray-400">
-                            <img src="https://placehold.co/24x24/60a5fa/ffffff?text=VL2" class="w-6 h-6 rounded-md"><span>V.League 2</span></a></li>
-                        <li><a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors font-semibold text-gray-400">
-                            <img src="https://placehold.co/24x24/34d399/ffffff?text=CUP" class="w-6 h-6 rounded-md"><span>Cúp Quốc Gia</span></a></li>
-                         <li><a href="#" class="flex items-center space-x-3 p-2 rounded-lg hover:bg-gray-700/50 transition-colors font-semibold text-gray-400">
-                            <img src="https://placehold.co/24x24/fbbf24/ffffff?text=SEA" class="w-6 h-6 rounded-md"><span>SEA Games</span><span class="ml-auto text-xs font-bold text-yellow-500 bg-yellow-900/50 px-2 py-0.5 rounded-full">LIVE</span></a></li>
+        <div class="main-layout">
+            <aside class="sidebar-left">
+                <div class="card">
+                    <h3 class="card-title">Kênh của tôi</h3>
+                    <ul class="channel-list">
+                        <li>
+                            <a href="#" class="channel-item active-channel">
+                                <img src="https://placehold.co/24x24/f87171/ffffff?text=VL1" alt="V.League 1">
+                                <span>V.League 1</span>
+                                <span class="live-badge">LIVE</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="channel-item">
+                                <img src="https://placehold.co/24x24/60a5fa/ffffff?text=VL2" alt="V.League 2">
+                                <span>V.League 2</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="channel-item">
+                                <img src="https://placehold.co/24x24/34d399/ffffff?text=CUP" alt="Cúp Quốc Gia">
+                                <span>Cúp Quốc Gia</span>
+                            </a>
+                        </li>
+                         <li>
+                            <a href="#" class="channel-item">
+                                <img src="https://placehold.co/24x24/fbbf24/ffffff?text=SEA" alt="SEA Games">
+                                <span>SEA Games</span>
+                                <span class="live-badge warning">LIVE</span>
+                            </a>
+                        </li>
                     </ul>
                 </div>
-                <div class="card p-4">
-                    <h3 class="font-bold text-white mb-4">Tin tức</h3>
-                    <div class="grid grid-cols-3 gap-4">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=VTV" alt="VTV" class="rounded-lg object-contain">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=K+" alt="K+" class="rounded-lg object-contain">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=FPT" alt="FPT Play" class="rounded-lg object-contain">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=ON" alt="On Sports" class="rounded-lg object-contain">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=BĐTV" alt="BongdaTV" class="rounded-lg object-contain">
-                        <img src="https://placehold.co/60x40/ffffff/000000?text=HTV" alt="HTV The Thao" class="rounded-lg object-contain">
+                <div class="card">
+                    <h3 class="card-title">Tin tức</h3>
+                    <div class="news-partners">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=VTV" alt="VTV">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=K+" alt="K+">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=FPT" alt="FPT Play">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=ON" alt="On Sports">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=BĐTV" alt="BongdaTV">
+                        <img src="https://placehold.co/60x40/ffffff/000000?text=HTV" alt="HTV The Thao">
                     </div>
                 </div>
-                <div class="relative hidden lg:block">
-                     <img src="https://placehold.co/200x300/1a202c/ffffff?text=Player" class="w-full h-auto object-cover rounded-2xl" alt="Soccer Player">
-                     <div class="absolute bottom-0 left-0 right-0 h-2/3 bg-gradient-to-t from-[#242b3d]"></div>
+                <div class="player-promo">
+                      <img src="https://placehold.co/200x300/1a202c/ffffff?text=Player" alt="Soccer Player">
+                      <div class="promo-gradient"></div>
                 </div>
             </aside>
 
-            <!-- Main Content -->
-            <main class="col-span-12 lg:col-span-7 space-y-6">
-                <!-- Featured Match -->
-                <div class="card p-6 relative rounded-3xl overflow-hidden min-h-[300px] flex flex-col justify-end">
-                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1935&auto=format&fit=crop" class="absolute inset-0 w-full h-full object-cover z-0" alt="Stadium background">
-                    <div class="absolute inset-0 bg-black/60 z-10"></div>
-                    <div class="relative z-20">
-                        <h1 class="text-4xl md:text-5xl font-extrabold text-white">Hà Nội FC VS Hoàng Anh Gia Lai</h1>
-                        <div class="flex items-center space-x-4 mt-2 text-gray-300">
-                            <span><i data-lucide="calendar" class="inline-block mr-2 h-4 w-4"></i>28 tháng 10, 2025</span>
-                            <span><i data-lucide="map-pin" class="inline-block mr-2 h-4 w-4"></i>Sân vận động Hàng Đẫy</span>
+            <main class="main-content">
+                <div class="card featured-match">
+                    <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=1935&auto=format&fit=crop" class="featured-match-bg" alt="Stadium background">
+                    <div class="featured-match-overlay"></div>
+                    <div class="featured-match-content">
+                        <h1 class="match-title">Hà Nội FC VS Hoàng Anh Gia Lai</h1>
+                        <div class="match-info">
+                            <span><i data-lucide="calendar"></i>28 tháng 10, 2025</span>
+                            <span><i data-lucide="map-pin"></i>Sân vận động Hàng Đẫy</span>
                         </div>
-                        <button class="watch-now-btn mt-6 text-white font-bold py-3 px-8 rounded-full text-lg hover:opacity-90 transition-opacity">
+                        <button class="watch-now-btn">
                             Xem ngay
                         </button>
                     </div>
                 </div>
 
-                <!-- Standings -->
-                <div class="card p-6">
-                    <h3 class="font-bold text-white text-xl mb-4">Bảng xếp hạng V.League 1</h3>
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left">
-                            <thead class="text-gray-400">
+                <div class="card">
+                    <h3 class="card-title standings-title">Bảng xếp hạng V.League 1</h3>
+                    <div class="table-container">
+                        <table class="standings-table">
+                            <thead>
                                 <tr>
-                                    <th class="p-3 font-semibold">Đội</th>
-                                    <th class="p-3 font-semibold text-center">Đ</th>
-                                    <th class="p-3 font-semibold text-center">T</th>
-                                    <th class="p-3 font-semibold text-center">H</th>
-                                    <th class="p-3 font-semibold text-center">B</th>
-                                    <th class="p-3 font-semibold text-center">BT</th>
-                                    <th class="p-3 font-semibold text-center">BB</th>
+                                    <th>Đội</th>
+                                    <th class="text-center">Đ</th>
+                                    <th class="text-center">T</th>
+                                    <th class="text-center">H</th>
+                                    <th class="text-center">B</th>
+                                    <th class="text-center">BT</th>
+                                    <th class="text-center">BB</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="border-t border-gray-700 hover:bg-gray-700/50">
-                                    <td class="p-3 flex items-center space-x-3"><span class="font-bold">1</span><img src="https://placehold.co/24x24/facc15/000000?text=ND" class="w-6 h-6 rounded-full"><span class="font-semibold text-white">Thép Xanh Nam Định</span></td>
-                                    <td class="p-3 font-semibold text-center text-white">44</td>
-                                    <td class="p-3 text-center">12</td>
-                                    <td class="p-3 text-center">8</td>
-                                    <td class="p-3 text-center">1</td>
-                                    <td class="p-3 text-center">40</td>
-                                    <td class="p-3 text-center">18</td>
+                                <tr>
+                                    <td class="team-cell">
+                                        <span class="rank">1</span>
+                                        <img src="https://placehold.co/24x24/facc15/000000?text=ND" class="team-logo" alt="Nam Dinh Logo">
+                                        <span class="team-name">Thép Xanh Nam Định</span>
+                                    </td>
+                                    <td class="text-center points">44</td>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">8</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">40</td>
+                                    <td class="text-center">18</td>
                                 </tr>
-                                <tr class="border-t border-gray-700 hover:bg-gray-700/50">
-                                    <td class="p-3 flex items-center space-x-3"><span class="font-bold">2</span><img src="https://placehold.co/24x24/ef4444/ffffff?text=HN" class="w-6 h-6 rounded-full"><span class="font-semibold text-white">Hà Nội FC</span></td>
-                                    <td class="p-3 font-semibold text-center text-white">43</td>
-                                    <td class="p-3 text-center">11</td>
-                                    <td class="p-3 text-center">10</td>
-                                    <td class="p-3 text-center">1</td>
-                                    <td class="p-3 text-center">40</td>
-                                    <td class="p-3 text-center">18</td>
+                                <tr>
+                                    <td class="team-cell">
+                                        <span class="rank">2</span>
+                                        <img src="https://placehold.co/24x24/ef4444/ffffff?text=HN" class="team-logo" alt="Ha Noi FC Logo">
+                                        <span class="team-name">Hà Nội FC</span>
+                                    </td>
+                                    <td class="text-center points">43</td>
+                                    <td class="text-center">11</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">40</td>
+                                    <td class="text-center">18</td>
                                 </tr>
-                                <tr class="border-t border-gray-700 hover:bg-gray-700/50">
-                                    <td class="p-3 flex items-center space-x-3"><span class="font-bold">3</span><img src="https://placehold.co/24x24/ffffff/000000?text=HAGL" class="w-6 h-6 rounded-full"><span class="font-semibold text-white">Hoàng Anh Gia Lai</span></td>
-                                    <td class="p-3 font-semibold text-center text-white">43</td>
-                                    <td class="p-3 text-center">11</td>
-                                    <td class="p-3 text-center">10</td>
-                                    <td class="p-3 text-center">1</td>
-                                    <td class="p-3 text-center">40</td>
-                                    <td class="p-3 text-center">18</td>
+                                <tr>
+                                    <td class="team-cell">
+                                        <span class="rank">3</span>
+                                        <img src="https://placehold.co/24x24/ffffff/000000?text=HAGL" class="team-logo" alt="HAGL Logo">
+                                        <span class="team-name">Hoàng Anh Gia Lai</span>
+                                    </td>
+                                    <td class="text-center points">43</td>
+                                    <td class="text-center">11</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">40</td>
+                                    <td class="text-center">18</td>
                                 </tr>
-                                <tr class="border-t border-gray-700 hover:bg-gray-700/50">
-                                    <td class="p-3 flex items-center space-x-3"><span class="font-bold">4</span><img src="https://placehold.co/24x24/f97316/ffffff?text=BD" class="w-6 h-6 rounded-full"><span class="font-semibold text-white">Becamex Bình Dương</span></td>
-                                    <td class="p-3 font-semibold text-center text-white">42</td>
-                                    <td class="p-3 text-center">10</td>
-                                    <td class="p-3 text-center">12</td>
-                                    <td class="p-3 text-center">1</td>
-                                    <td class="p-3 text-center">40</td>
-                                    <td class="p-3 text-center">18</td>
+                                <tr>
+                                    <td class="team-cell">
+                                        <span class="rank">4</span>
+                                        <img src="https://placehold.co/24x24/f97316/ffffff?text=BD" class="team-logo" alt="Binh Duong Logo">
+                                        <span class="team-name">Becamex Bình Dương</span>
+                                    </td>
+                                    <td class="text-center points">42</td>
+                                    <td class="text-center">10</td>
+                                    <td class="text-center">12</td>
+                                    <td class="text-center">1</td>
+                                    <td class="text-center">40</td>
+                                    <td class="text-center">18</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -188,60 +175,55 @@
                 </div>
             </main>
 
-            <!-- Right Sidebar -->
-            <aside class="col-span-12 lg:col-span-3 space-y-6">
-                <!-- Upcoming Match -->
-                <div class="card p-6">
-                    <h3 class="font-bold text-white mb-4">Trận đấu sắp tới</h3>
-                    <div class="flex justify-between items-center">
-                        <div class="flex flex-col items-center space-y-2">
-                            <img src="https://placehold.co/48x48/22c55e/ffffff?text=VT" class="w-12 h-12 rounded-full">
-                            <span class="font-semibold">Viettel FC</span>
+            <aside class="sidebar-right">
+                <div class="card">
+                    <h3 class="card-title">Trận đấu sắp tới</h3>
+                    <div class="upcoming-match">
+                        <div class="team">
+                            <img src="https://placehold.co/48x48/22c55e/ffffff?text=VT" alt="Viettel FC">
+                            <span class="team-name">Viettel FC</span>
                         </div>
-                        <span class="text-3xl font-bold text-gray-500">VS</span>
-                        <div class="flex flex-col items-center space-y-2">
-                            <img src="https://placehold.co/48x48/3b82f6/ffffff?text=CAHN" class="w-12 h-12 rounded-full">
-                            <span class="font-semibold">CAHN</span>
+                        <span class="vs">VS</span>
+                        <div class="team">
+                            <img src="https://placehold.co/48x48/3b82f6/ffffff?text=CAHN" alt="CAHN">
+                            <span class="team-name">CAHN</span>
                         </div>
                     </div>
-                    <button class="w-full mt-6 bg-gray-600/50 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors">Chi tiết trận đấu</button>
+                    <button class="details-btn">Chi tiết trận đấu</button>
                 </div>
-                <!-- Watch Time -->
-                <div class="card p-6">
-                    <h3 class="font-bold text-white mb-4">Tổng thời gian xem</h3>
-                    <p class="text-4xl font-bold text-white">2 <span class="text-2xl text-gray-400">giờ</span> 40 <span class="text-2xl text-gray-400">phút</span></p>
-                    <div class="flex items-end justify-between mt-4 h-24 space-x-2">
-                        <div class="w-full bg-gray-600 rounded-lg h-1/3" title="T2"></div>
-                        <div class="w-full bg-gray-600 rounded-lg h-2/3" title="T3"></div>
-                        <div class="w-full bg-gray-600 rounded-lg h-1/2" title="T4"></div>
-                        <div class="w-full bg-indigo-500 rounded-lg h-full" title="T5"></div>
-                        <div class="w-full bg-gray-600 rounded-lg h-3/4" title="T6"></div>
-                        <div class="w-full bg-gray-600 rounded-lg h-2/4" title="T7"></div>
-                        <div class="w-full bg-gray-600 rounded-lg h-1/4" title="CN"></div>
+                <div class="card">
+                    <h3 class="card-title">Tổng thời gian xem</h3>
+                    <p class="watch-time-total">2 <span>giờ</span> 40 <span>phút</span></p>
+                    <div class="watch-time-chart">
+                        <div style="height: 33.33%" title="T2"></div>
+                        <div style="height: 66.67%" title="T3"></div>
+                        <div style="height: 50%" title="T4"></div>
+                        <div style="height: 100%" class="active-day" title="T5"></div>
+                        <div style="height: 75%" title="T6"></div>
+                        <div style="height: 50%" title="T7"></div>
+                        <div style="height: 25%" title="CN"></div>
                     </div>
                 </div>
-                 <!-- Hot News -->
-                <div class="card p-6">
-                    <h3 class="font-bold text-white mb-4">Tin nóng 🔥</h3>
-                    <ul class="space-y-4">
-                        <li class="flex items-center space-x-4">
-                            <img src="https://placehold.co/80x60/f87171/ffffff?text=News1" class="w-20 h-16 rounded-lg object-cover">
+                 <div class="card">
+                    <h3 class="card-title">Tin nóng 🔥</h3>
+                    <ul class="hot-news-list">
+                        <li class="hot-news-item">
+                            <img src="https://placehold.co/80x60/f87171/ffffff?text=News1" alt="News 1">
                             <div>
-                                <a href="#" class="font-semibold text-white hover:text-indigo-400 transition-colors">HLV Kim Sang-sik triệu tập đội hình cho AFF Cup.</a>
-                                <p class="text-sm text-gray-400">22 tháng 10, 2025</p>
+                                <a href="#">HLV Kim Sang-sik triệu tập đội hình cho AFF Cup.</a>
+                                <p>22 tháng 10, 2025</p>
                             </div>
                         </li>
-                        <li class="flex items-center space-x-4">
-                            <img src="https://placehold.co/80x60/60a5fa/ffffff?text=News2" class="w-20 h-16 rounded-lg object-cover">
+                        <li class="hot-news-item">
+                            <img src="https://placehold.co/80x60/60a5fa/ffffff?text=News2" alt="News 2">
                             <div>
-                                <a href="#" class="font-semibold text-white hover:text-indigo-400 transition-colors">Quang Hải nhận giải "Cầu thủ xuất sắc nhất tháng".</a>
-                                <p class="text-sm text-gray-400">21 tháng 10, 2025</p>
+                                <a href="#">Quang Hải nhận giải "Cầu thủ xuất sắc nhất tháng".</a>
+                                <p>21 tháng 10, 2025</p>
                             </div>
                         </li>
                     </ul>
                 </div>
             </aside>
-
         </div>
     </div>
 
