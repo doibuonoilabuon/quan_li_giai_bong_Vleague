@@ -34,7 +34,6 @@ Cung cấp giao diện thân thiện cho người dùng để dễ dàng tra c�
 
 Hỗ trợ quản lý dữ liệu bóng đá chuyên nghiệp và chính xác.
 
-Tăng khả năng tương tác và cập nhật thông tin cho người hâm mộ và ban tổ chức.
 
 🛠️ Công nghệ sử dụng
 
@@ -56,15 +55,7 @@ Xem tin tức bóng đá mới nhất
 
 Giao diện phản hồi tốt trên mọi thiết bị (responsive)
 
-🔐 Dành cho quản trị viên (Admin)
 
-Đăng nhập trang quản lý riêng
-
-Thêm kết quả trận đấu mới
-
-Chỉnh sửa thông tin bảng xếp hạng
-
-Cập nhật dữ liệu đội bóng và lịch thi đấu
 
 
 
