@@ -1,10 +1,15 @@
 ⚽ Website Quản Lý Giải Bóng Đá Việt Nam (V.League)
+
 👥 Thành viên nhóm
 
 Lưu Công Dũng
+
 Nguyễn Quang Huy
+
 Nguyễn bá Kỳ
+
 Trần Văn Lực
+
 Ngô Quang Huy
 
 👨‍🏫 Giảng viên hướng dẫn
@@ -61,46 +66,6 @@ Chỉnh sửa thông tin bảng xếp hạng
 
 Cập nhật dữ liệu đội bóng và lịch thi đấu
 
-🧭 Cấu trúc Sitemap
-Trang Chủ
-├── Lịch Thi Đấu
-│   ├── Chi Tiết Trận Đấu
-│   └── Sân Vận Động
-├── Kết Quả
-│   └── Thông Tin Trận Đấu
-├── Bảng Xếp Hạng
-├── Đội Bóng
-│   ├── Danh Sách Cầu Thủ
-│   └── Thông Tin Đội
-├── Tin Tức
-├── Giới Thiệu
-└── Đăng Nhập / Admin
-
-🗂️ Cấu trúc cây thư mục
-📁 assets
-│
-├── 📁 css
-│   └── style.css
-│
-├── 📁 js
-│   ├── main.js
-│   ├── admin.js
-│   └── data.js
-│
-├── 📁 img
-│  
-│
-└── 📁 data
-    └── match-results.json
-│
-📄 index.html
-📄 schedule.html
-📄 result.html
-📄 ranking.html
-📄 club.html
-📄 news.html
-📄 about.html
-📄 admin.html
 
 
 🌐 Các website tham khảo
