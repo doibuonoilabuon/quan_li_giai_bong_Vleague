@@ -54,13 +54,11 @@ function showTeamDetails(teamName) {
         `;
     }
     
-    // Cuộn lên đầu
+  
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/**
- * Hàm quay lại màn hình danh sách đội bóng chính.
- */
+
 function hideTeamDetails() {
     const teamsView = document.getElementById('teams-main-view');
     const playerDetailsView = document.getElementById('player-details-view');
@@ -68,37 +66,29 @@ function hideTeamDetails() {
     playerDetailsView.classList.add('hidden');
     teamsView.classList.remove('hidden');
 
-    // Cuộn lên đầu
+   
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/**
- * Hàm xử lý khi nhấn nút Trang Chủ (Z TV).
- * Hiện tại chỉ hiển thị thông báo và cuộn lên đầu.
- */
-/**
- * Hàm xử lý khi nhấn nút Trang Chủ.
- * Hiển thị thông báo, sau đó chuyển về trangchu.html
- */
-function goToHomePage() {
-    hideTeamDetails(); // Quay về màn hình danh sách đội
-    showMessage("Đang chuyển về Trang Chủ...", 'emerald'); // Hiển thị thông báo
 
-    // Chuyển hướng về trangchu.html sau 1 giây (để kịp đọc thông báo)
+function goToHomePage() {
+    hideTeamDetails(); 
+    showMessage("Đang chuyển về Trang Chủ...", 'emerald'); 
+
+    
     setTimeout(() => {
-        window.location.href = 'trangchu.html';
+        window.location.href = 'index.html';
     }, 1000); 
 }
 
-// Hàm hiển thị thông báo chung
 function showMessage(content, type = 'blue') {
     const messageBox = document.getElementById('team-message');
     const messageContent = document.getElementById('message-content');
     
-    // Xóa các class màu cũ
+   
     messageBox.classList.remove('bg-blue-800', 'bg-emerald-800', 'bg-red-800');
 
-    // Thêm class màu mới
+
     messageBox.classList.add(`bg-${type}-800`);
     
     messageContent.textContent = content;
