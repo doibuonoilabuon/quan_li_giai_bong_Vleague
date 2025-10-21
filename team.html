@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Danh Sách Cầu Thủ - V-League</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="stylesheet" href="assets/css/team.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-900 text-white min-h-screen p-4 sm:p-8">
+
+    <div class="max-w-7xl mx-auto">
+        
+        <div class="flex justify-between items-center mb-10">
+            <h1 id="main-title" class="text-4xl sm:text-5xl font-extrabold text-emerald-400 tracking-tight">
+                Danh Sách Các Đội Bóng V-League
+            </h1>
+
+            <button onclick="goToHomePage()" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg flex items-center shadow-md transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.144-.439 1.583 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V9.75m-15 0V7.5a2.25 2.25 0 012.25-2.25h13.5a2.25 2.25 0 012.25 2.25v2.25" />
+                </svg>
+                Trang Chủ 
+            </button>
+        </div>
+        <div id="team-message" class="bg-blue-800 text-center p-4 rounded-lg shadow-xl mb-8 transition duration-300 transform scale-100 hidden">
+            <p class="font-semibold text-lg" id="message-content">Vui lòng chọn một đội để xem chi tiết.</p>
+        </div>
+
+        <div id="teams-main-view" class="teams-grid grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-emerald-500"
+                 data-team-id="ND" onclick="showTeamDetails('Thép Xanh Nam Định')">
+                <img src="assets/images/nd.jpg" alt="Thép Xanh Nam Định" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Thép Xanh Nam Định</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-red-500"
+                 data-team-id="CA TPHCM" onclick="showTeamDetails('CA TPHCM')">
+                <img src="assets/images/CA  TPHCM.png" onerror="this.onerror=null;this.src='https://placehold.co/150x150/8a2be2/ffffff?text=CATP';" alt="CA TPHCM" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">CA TPHCM</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-yellow-500"
+                 data-team-id="TPHCM" onclick="showTeamDetails('Becamex TPHCM')">
+                <img src="assets/images/becamex tphcm.jpg" alt="Becamex TPHCM" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Becamex TPHCM</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-indigo-500"
+                 data-team-id="PVF" onclick="showTeamDetails('PVF CAND')">
+                <img src="assets/images/pvfcahn.jpg" alt="PVF CAND" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">PVF CAND</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-purple-500"
+                 data-team-id="HNFC" onclick="showTeamDetails('Hà Nội FC')">
+                <img src="assets/images/hnfc.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/7c3aed/ffffff?text=HNFC';" alt="Hà Nội FC" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Hà Nội FC</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-orange-500"
+                 data-team-id="SLNA" onclick="showTeamDetails('Sông Lam Nghệ An')">
+                <img src="assets/images/slna.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/f97316/ffffff?text=SLNA';" alt="Sông Lam Nghệ An" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Sông Lam Nghệ An</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-red-700"
+                 data-team-id="HP" onclick="showTeamDetails('Hải Phòng')">
+                <img src="assets/images/hp.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/b91c1c/ffffff?text=HP';" alt="Hải Phòng" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Hải Phòng</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-green-500"
+                 data-team-id="NB" onclick="showTeamDetails('Ninh Bình')">
+                <img src="assets/images/ninhbinh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/10b981/ffffff?text=NB';" alt="Ninh Bình" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Ninh Bình</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-blue-500"
+                 data-team-id="CAHN" onclick="showTeamDetails('Công An Hà Nội')">
+                <img src="assets/images/cahn.jpg" alt="CAHN" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+
+                <p class="font-bold text-base text-center">Công An Hà Nội</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-red-600"
+                 data-team-id="VT" onclick="showTeamDetails('Viettel')">
+                <img src="assets/images/vt.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/dc2626/ffffff?text=VT';" alt="Viettel" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Viettel</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-pink-500"
+                 data-team-id="HT" onclick="showTeamDetails('Hồng Lĩnh Hà Tĩnh')">
+                <img src="assets/images/ht.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/ec4899/ffffff?text=HT';" alt="Hồng Lĩnh Hà Tĩnh" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Hồng Lĩnh Hà Tĩnh</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-teal-500"
+                 data-team-id="DN" onclick="showTeamDetails('Đà Nẵng')">
+                <img src="assets/images/nhadn.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/14b8a6/ffffff?text=DN';" alt="Đà Nẵng" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Đà Nẵng</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-amber-500"
+                 data-team-id="TH" onclick="showTeamDetails('Thanh Hóa')">
+                <img src="assets/images/36.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/f59e0b/ffffff?text=TH';" alt="Thanh Hóa" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Thanh Hóa</p>
+            </div>
+
+            <div class="team-card bg-gray-800 rounded-xl p-4 flex flex-col items-center shadow-lg transition transform hover:scale-[1.02] hover:shadow-2xl cursor-pointer border-b-4 border-lime-500"
+                 data-team-id="HAGL" onclick="showTeamDetails('Hoàng Anh Gia Lai')">
+                <img src="assets/images/daocanh.jpg" onerror="this.onerror=null;this.src='https://placehold.co/150x150/84cc16/ffffff?text=HAGL';" alt="Hoàng Anh Gia Lai" class="w-24 h-24 sm:w-32 sm:h-32 object-contain rounded-full border-4 border-gray-700 mb-3">
+                <p class="font-bold text-base text-center">Hoàng Anh Gia Lai</p>
+            </div>
+
+        </div>
+     
+
+
+
+        <div id="player-details-view" class="hidden">
+            <button onclick="hideTeamDetails()" class="mb-6 bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg flex items-center transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-5 h-5 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                Quay lại danh sách đội
+            </button>
+
+            <h2 id="player-list-title" class="text-3xl font-bold mb-6 text-yellow-400">Danh Sách Cầu Thủ</h2>
+
+            <div id="player-list-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+
+    </div>
+
+    <div class="hidden bg-emerald-800 bg-red-800"></div>
+
+
+    <script src="assets/js/data.js"></script>
+    
+    <script src="assets/js/app.js"></script>
+
+</body>
+</html>
